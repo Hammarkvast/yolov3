@@ -1,5 +1,6 @@
 import argparse
 import time
+import torch
 from sys import platform
 
 from models import *
@@ -55,7 +56,7 @@ def detect(
 
     tt = []
 
-    for i, (path, img, im0) in enumerate(dataloader):
+    for i, (path, img, im0, _) in enumerate(dataloader):
         t = time.time()
         save_path = str(Path(output) / Path(path).name)
 
